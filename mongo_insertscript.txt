@@ -1,0 +1,69 @@
+db.banks.deleteMany({});
+db.estates.deleteMany({});
+db.people.deleteMany({});
+
+db.loans.deleteMany({});
+
+
+db.banks.save({_id: "CEKOCZPP", name: "Československá obchodní banka", code: 300});
+db.banks.save({_id: "FIOBCZPP", name: "Fio banka", code: 2010});
+db.banks.save({_id: "CTASCZ22", name: "Banka CREDITAS", code: 2250});
+
+
+db.estates.save({_id: "2", type: "house", address: "Lipová 81, Praha", value: 9400000, subestates: []});
+db.estates.save({_id: "3", type: "house", address: "Mírové náměstí 25, Brno", value: 7500000, subestates: []});
+db.estates.save({_id: "4", type: "flat", address: "Ondřejovská 86, Praha", value: 3100000, subestates: []});
+db.estates.save({_id: "5", type: "flat", address: "Pionýrská 15, Brno", value: 2985000, subestates: []});
+db.estates.save({_id: "6", type: "flat", address: "Podhornická 139, Praha", value: 2423000, subestates: []});
+db.estates.save({_id: "7", type: "flat", address: "Sluneční 199, Brno", value: 2850000, subestates: []});
+db.estates.save({_id: "8", type: "flat", address: "Spojovací 42, Praha", value: 2350000, subestates: []});
+db.estates.save({_id: "17", type: "land", address: "Vládní 15, Praha", value: 1970000, subestates: []});
+db.estates.save({_id: "18", type: "land", address: "Družstevní 133, Brno", value: 3320000, subestates: []});
+db.estates.save({_id: "19", type: "land", address: "Lesní 92, Praha", value: 4855000, subestates: []});
+db.estates.save({_id: "20", type: "land", address: "Ploní 15, Brno", value: 4660000, subestates: []});
+
+db.estates.save({_id: "9", type: "flat", address: "Struhařovská 84, Brno", value: 3240000, subestates: [{e_id: "13"}]});
+db.estates.save({_id: "13", type: "garage", address: "Struhařovská 84, Praha", value: 450000, subestates: []});
+
+db.estates.save({_id: "10", type: "flat", address: "Školní 31, Praha", value: 3480000, subestates: [{e_id: "14"}]});
+db.estates.save({_id: "14", type: "garage", address: "Školní 31, Praha", value: 295000, subestates: []});
+
+db.estates.save({_id: "11", type: "flat", address: "Třemblatská 131, Praha", value: 4940000, subestates: [{e_id: "15"}]});
+db.estates.save({_id: "15", type: "garage", address: "Třemblatská 131, Praha", value: 248000, subestates: []});
+
+db.estates.save({_id: "12", type: "flat", address: "Višňová 46, Brno", value: 5130000, subestates: [{e_id: "16"}]});
+db.estates.save({_id: "16", type: "garage", address: "Višňová 46, Brno", value: 345000, subestates: []});
+
+db.estates.save({_id: "1", type: "house", address: "Javorová 12, Brno", value: 5700000, subestates: [{e_id: "21"}]});
+db.estates.save({_id: "21", type: "land", address: "Javornická 15, Brno", value: 495000, subestates: [{e_id: "22"}]});
+db.estates.save({_id: "22", type: "garage", address: "Javornická 15, Brno", value: 325000, subestates: [{e_id: "23"}]});
+db.estates.save({_id: "23", type: "cellar", address: "Javornická 15, Brno", value: 487250, subestates: []});
+
+
+db.people.save({_id: "24", name: "Jiří", surname: "Bravenec", email: "bravenec@seznam.cz", phone: "740698061", types: ["landlord"], owns: [{e_id: "1"}, {e_id: "4"}], leases: [{}]});
+db.people.save({_id: "25", name: "Rudolf", surname: "Řeháček", email: "rehacek@gmail.com", phone: "745082420", types: ["landlord"], owns: [{e_id: "2"}, {e_id: "19"}, {e_id: "20"}], leases: [{}]});
+db.people.save({_id: "26", name: "Libor", surname: "Šašek", email: "sasek@seznam.cz", phone: "752693555", types: ["landlord"], owns: [{e_id: "5"}, {e_id: "6"}], leases: [{}]});
+db.people.save({_id: "27", name: "Vilém", surname: "Kotík", email: "kotik@seznam.cz", phone: "756881693", types: ["landlord"], owns: [{e_id: "8"}, {e_id: "9"}], leases: [{}]});
+
+db.people.save({_id: "28", name: "Otakar", surname: "Vacula", email: "vacula@gmail.com", phone: "739986862", types: ["landlord", "tenant"], owns: [{e_id: "10"}, {e_id: "18"}], leases: [{e_id: "1", monthly: 34500}, {e_id: "20", monthly: 13230}]});
+db.people.save({_id: "29", name: "Oldřich", surname: "Šmerda", email: "smerda@seznam.cz", phone: "754537949", types: ["landlord", "tenant"], owns: [{e_id: "11"}], leases: [{e_id: "18", monthly: 12650}]});
+db.people.save({_id: "30", name: "Cyril", surname: "Honzík", email: "honzik@gmail.com", phone: "749415819", types: ["landlord", "tenant"], owns: [{e_id: "17"}], leases: [{e_id: "19", monthly: 15470}]});
+
+db.people.save({_id: "31", name: "Viktor", surname: "Steklý", email: "stekly@seznam.cz", phone: "737047921", types: ["tenant"], owns: [{}], leases: [{e_id: "2", monthly: 46750}]});
+db.people.save({_id: "32", name: "Rostislav", surname: "Šeda", email: "seda@gmail.com", phone: "739814131", types: ["tenant"], owns: [{}], leases: [{e_id: "4", monthly: 26450}]});
+db.people.save({_id: "33", name: "Vilém", surname: "Balek", email: "balek@seznam.cz", phone: "744019103", types: ["tenant"], owns: [{}], leases: [{e_id: "6", monthly: 22500}]});
+db.people.save({_id: "34", name: "Vratislav", surname: "Krejsa", email: "krejsa@gmail.com", phone: "754276241", types: ["tenant"], owns: [{}], leases: [{e_id: "8", monthly: 18700}]});
+db.people.save({_id: "35", name: "Marcel", surname: "Uhlík", email: "uhlik@seznam.cz", phone: "752183651", types: ["tenant"], owns: [{}], leases: [{e_id: "9", monthly: 27500}]});
+db.people.save({_id: "36", name: "Ivo", surname: "Chlumský", email: "chlumsky@hotmail.com", phone: "747283444", types: ["tenant"], owns: [{}], leases: [{e_id: "10", monthly: 28750}]});
+db.people.save({_id: "37", name: "Kristián", surname: "Žabka", email: "zabka@seznam.cz", phone: "752055869", types: ["tenant"], owns: [{}], leases: [{e_id: "11", monthly: 32480}]});
+db.people.save({_id: "38", name: "Viktor", surname: "Slaný", email: "slany@seznam.cz", phone: "753350534", types: ["tenant"], owns: [{}], leases: [{e_id: "17", monthly: 6440}]});
+
+
+db.loans.save({_id: "39", type: "Nemovitostní fond", amount: 5000000, interest: 0.04, b_id: "CEKOCZPP", p_id: "24"});
+db.loans.save({_id: "40", type: "Nemovitostní fond", amount: 4000000, interest: 0.035, b_id: "CEKOCZPP", p_id: "25"});
+db.loans.save({_id: "41", type: "Hypotéka", amount: 8000000, interest: 0.02, b_id: "FIOBCZPP", p_id: "25"});
+db.loans.save({_id: "42", type: "Hypotéka", amount: 2700000, interest: 0.025, b_id: "CTASCZ22", p_id: "26"});
+db.loans.save({_id: "43", type: "Hypotéka", amount: 3000000, interest: 0.03, b_id: "CTASCZ22", p_id: "28"});
+db.loans.save({_id: "44", type: "Jednorázová půjčka", amount: 200000, interest: 0.05, b_id: "FIOBCZPP", p_id: "33"});
+db.loans.save({_id: "45", type: "Jednorázová půjčka", amount: 250000, interest: 0.05, b_id: "CTASCZ22", p_id: "34"});
+db.loans.save({_id: "46", type: "Jednorázová půjčka", amount: 300000, interest: 0.06, b_id: "CTASCZ22", p_id: "35"});
